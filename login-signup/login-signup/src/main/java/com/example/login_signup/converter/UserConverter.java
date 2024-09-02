@@ -1,7 +1,7 @@
-package com.example.signup.converter;
+package com.example.login_signup.converter;
 
-import com.example.signup.entity.User;
-import com.example.signup.model.UserJson;
+import com.example.login_signup.entity.User;
+import com.example.login_signup.model.UserJson;
 
 public class UserConverter implements Converter<User, UserJson> {
     @Override

@@ -1,9 +1,9 @@
-package com.example.signup.controller;
+package com.example.login_signup.controller;
 
-import com.example.signup.converter.UserConverter;
-import com.example.signup.entity.User;
-import com.example.signup.model.UserJson;
-import com.example.signup.service.LoginService;
+import com.example.login_signup.converter.UserConverter;
+import com.example.login_signup.entity.User;
+import com.example.login_signup.model.UserJson;
+import com.example.login_signup.service.LoginService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.web.csrf.CsrfToken;
@@ -23,9 +23,9 @@ public class LoginController {
     }
 
     @GetMapping("/login")
-    public CsrfToken login(HttpServletRequest request, @RequestBody UserJson userJson) {
+    public String login(@RequestBody UserJson userJson) {
         User user = this.service.login(this.converter.convertToEntity(new User(), userJson));
-        return getToken(request);
+        return "signed in";
     }
 
     public CsrfToken getToken(HttpServletRequest request) {

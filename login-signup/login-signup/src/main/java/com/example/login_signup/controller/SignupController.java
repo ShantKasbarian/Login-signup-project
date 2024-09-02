@@ -1,10 +1,10 @@
-package com.example.signup.controller;
+package com.example.login_signup.controller;
 
-import com.example.signup.converter.UserConverter;
-import com.example.signup.entity.User;
-import com.example.signup.model.IdJson;
-import com.example.signup.model.UserJson;
-import com.example.signup.service.SignupService;
+import com.example.login_signup.converter.UserConverter;
+import com.example.login_signup.entity.User;
+import com.example.login_signup.model.IdJson;
+import com.example.login_signup.model.UserJson;
+import com.example.login_signup.service.SignupService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

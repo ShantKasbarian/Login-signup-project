@@ -1,19 +1,23 @@
-package com.example.signup;
+package com.example.login_signup;
 
-import com.example.signup.entity.User;
+import com.example.login_signup.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 public class UserPrincipal implements UserDetails {
     private User user;
 
     public UserPrincipal(User user) {
         this.user = user;
+    }
+
+    public UserPrincipal() {
+
     }
 
     @Override

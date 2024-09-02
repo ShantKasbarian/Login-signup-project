@@ -1,4 +1,4 @@
-package com.example.signup.entity;
+package com.example.login_signup.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

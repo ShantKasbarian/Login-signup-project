@@ -1,4 +1,4 @@
-package com.example.signup.model;
+package com.example.login_signup.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

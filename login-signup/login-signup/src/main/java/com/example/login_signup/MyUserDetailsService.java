@@ -1,7 +1,7 @@
-package com.example.signup;
+package com.example.login_signup;
 
-import com.example.signup.entity.User;
-import com.example.signup.repository.UserRepo;
+import com.example.login_signup.entity.User;
+import com.example.login_signup.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
-package com.example.signup.repository;
+package com.example.login_signup.repository;
 
-import com.example.signup.entity.User;
+import com.example.login_signup.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

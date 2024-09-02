@@ -1,4 +1,4 @@
-package com.example.signup;
+package com.example.login_signup;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -25,10 +25,13 @@ public class SecurityConfig {
         return http
                 .httpBasic(withDefaults())
                 .csrf(withDefaults())
-                .authorizeHttpRequests(auth -> {auth.requestMatchers("/login", "/signup").permitAll().anyRequest().authenticated();})
-                .formLogin(withDefaults())
-                .logout(withDefaults())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(request -> {
+                    request.requestMatchers("/login", "/signup").permitAll();
+                    request.anyRequest().authenticated();
+                })
+               .formLogin(withDefaults())
+               .logout(withDefaults())                
+               .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
     }
 
