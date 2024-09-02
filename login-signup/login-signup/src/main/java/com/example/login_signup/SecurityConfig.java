@@ -11,7 +11,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -29,6 +28,7 @@ public class SecurityConfig {
                     request.requestMatchers("/login", "/signup").permitAll();
                     request.anyRequest().authenticated();
                 })
+                .oauth2Login(withDefaults())
                .formLogin(withDefaults())
                .logout(withDefaults())                
                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
