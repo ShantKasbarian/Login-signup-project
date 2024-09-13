@@ -44,7 +44,7 @@ public class JWTService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String extractname(String token) throws NoSuchAlgorithmException {
+    public String extractName(String token) throws NoSuchAlgorithmException {
         return extractClaim(token, Claims::getSubject);
     }
 
@@ -62,7 +62,7 @@ public class JWTService {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) throws NoSuchAlgorithmException {
-        final String name = extractname(token);
+        final String name = extractName(token);
         return (name.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
