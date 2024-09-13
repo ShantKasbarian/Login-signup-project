@@ -20,19 +20,7 @@ public class LoginService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JWTService jwtService;
-    BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder(12);
-//    public User login(User currentUser) {
-//        User user = this.repo.findByEmail(currentUser.getEmail());
-//
-//        if (
-//                user == null ||
-//                !BCrypt.checkpw(currentUser.getPassword(), user.getPassword())
-//        ) {
-//            throw new RuntimeException("bad credentials");
-//        }
-//
-//        return currentUser;
-//    }
+
     public String login(User user) throws NoSuchAlgorithmException {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getName(), user.getPassword()));
 
