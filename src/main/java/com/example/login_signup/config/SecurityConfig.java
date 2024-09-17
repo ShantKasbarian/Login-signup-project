@@ -9,7 +9,6 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -29,12 +28,16 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf(customizer -> customizer.disable())
-                .authorizeHttpRequests(request ->
-                    request.requestMatchers("login", "signup").permitAll()
+                .authorizeHttpRequests(request -> request
+                    .requestMatchers("login", "signup", "/login/github").permitAll()
                     .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
-//                .oauth2Login(withDefaults())
+                .oauth2Login (auth -> auth
+                        .loginPage("/login/github")
+                        .defaultSuccessUrl("/")
+                )
+
                 .logout(withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
