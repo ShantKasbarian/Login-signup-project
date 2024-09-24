@@ -33,11 +33,6 @@ public class SecurityConfig {
                     .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
-                .oauth2Login (auth -> auth
-                        .loginPage("/login/github")
-                        .defaultSuccessUrl("/")
-                )
-
                 .logout(withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)

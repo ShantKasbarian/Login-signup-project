@@ -42,9 +42,4 @@ public class LoginController {
     public String greet() {
         return "welcome";
     }
-
-    @GetMapping("/login/github")
-    public RedirectView loginWithGithub() {
-        return new RedirectView("http://localhost:8081/oauth2/authorization/github");
-    }
 }
